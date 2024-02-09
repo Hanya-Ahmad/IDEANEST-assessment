@@ -9,6 +9,7 @@ type Member struct {
 	AccessLevel string `bson:"access_level" json:"access_level" validate:"required"`
 }
 
+
 // Validate validates the member struct using the validate tag
 func (member *Member) Validate() error {
 	validate := validator.New()
