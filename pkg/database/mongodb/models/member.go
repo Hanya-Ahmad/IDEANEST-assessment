@@ -3,6 +3,7 @@ package models
 import "github.com/go-playground/validator/v10"
 
 // Member struct contains Member's table fields
+// NOTE: Member CRUD operations are not implemented
 type Member struct {
 	Name        string `bson:"name" json:"name" validate:"required"`
 	Email       string `bson:"email" json:"email" validate:"required"`

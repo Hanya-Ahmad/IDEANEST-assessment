@@ -1,27 +1,24 @@
 package main
 
 import (
-	"context"
-	"fmt"
-	"os"
-	"reflect"
+	"log"
 
-	"go.mongodb.org/mongo-driver/mongo"
-	"go.mongodb.org/mongo-driver/mongo/options"
+	"github.com/Hanya-Ahmad/IDEANEST-assessment/pkg/api"
+	"github.com/Hanya-Ahmad/IDEANEST-assessment/pkg/database/mongodb/models"
 )
 
 
-
 func main() {
-	clientOptions := options.Client().ApplyURI("mongodb://127.0.0.1:27017/?directConnection=true&serverSelectionTimeoutMS=2000&appName=mongosh+2.1.4")
-	fmt.Println("ClientOptopm TYPE:", reflect.TypeOf(clientOptions))
-
-	client, err := mongo.Connect(context.TODO(), clientOptions)
-	if err != nil {
-		fmt.Println("Mongo.connect() ERROR: ", err)
-		os.Exit(1)
+	config, err := models.ConfigureDB()
+	if err!=nil{
+		log.Fatal(err)
 	}
-	col := client.Database("TestDB").Collection("First_Collection")
-	fmt.Println("Collection Type: ", reflect.TypeOf(col))
-
+	app, err := api.NewApp(config.Database.ConnectionURI, config.Database.DBName)
+	if err!=nil{
+		log.Fatal(err)
+	}
+	if err := app.Run(); err != nil {
+		log.Fatal(err)
+	}
+	
 }
