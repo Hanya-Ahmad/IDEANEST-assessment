@@ -3,7 +3,6 @@ package models
 import (
 	"os"
 
-	"github.com/joho/godotenv"
 	"go.mongodb.org/mongo-driver/mongo"
 	"gopkg.in/yaml.v2"
 )
@@ -22,16 +21,7 @@ type DBClient struct {
 }
 
 // ConfigureDB loads the configuration settings for the database
-func ConfigureDB() (DBConfiguration, error){
-	if err := godotenv.Load(".env"); err != nil {
-		return DBConfiguration{}, err
-	}
-	configPath := os.Getenv("CONFIG_FILE_PATH")
-	file, err := os.Open(configPath)
-	if err != nil {
-		return DBConfiguration{}, err
-	}
-	defer file.Close()
+func ConfigureDB(file *os.File) (DBConfiguration, error){
 	var config DBConfiguration
 	decoder := yaml.NewDecoder(file)
 	if err := decoder.Decode(&config); err != nil {

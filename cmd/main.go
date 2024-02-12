@@ -2,6 +2,7 @@ package main
 
 import (
 	"log"
+	"os"
 
 	"github.com/Hanya-Ahmad/IDEANEST-assessment/pkg/api"
 	"github.com/Hanya-Ahmad/IDEANEST-assessment/pkg/database/mongodb/models"
@@ -9,7 +10,12 @@ import (
 
 
 func main() {
-	config, err := models.ConfigureDB()
+	file,err := os.Open("./config/database-config.yaml")
+	if err!=nil{
+		log.Fatal(err)
+	}
+	defer file.Close()
+	config, err := models.ConfigureDB(file)
 	if err!=nil{
 		log.Fatal(err)
 	}

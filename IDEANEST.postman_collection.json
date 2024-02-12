@@ -1,0 +1,335 @@
+{
+	"info": {
+		"_postman_id": "3a321162-857a-45f7-8fe7-478363e63284",
+		"name": "IDEANEST",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "23462373",
+		"_collection_link": "https://test-team-168203.postman.co/workspace/IDEANEST-assessment-Hanya~6ece0c60-ba82-4a53-840d-a769955b3d8a/collection/23462373-3a321162-857a-45f7-8fe7-478363e63284?action=share&source=collection_link&creator=23462373"
+	},
+	"item": [
+		{
+			"name": "signup",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\":\"Hanya\",\r\n    \"email\":\"hanya123@gmail.com\",\r\n    \"password\":\"Hanya\"\r\n   \r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/signup",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"signup"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "refresh-token",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJJRCI6IjY1YzZjODlkMTg5ZjNmNDNhNGUxZjg4MSIsImV4cCI6MTcwNzY4MzM2NX0.laIXRqsLQNk1ts6ixKq7ky2OnLSK1Lk4ZduArqLi6rM",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n     \"refresh_token\": \"eyJhbGciOiJIUzM4NCIsInR5cCI6IkpXVCJ9.eyJJRCI6IjY1YzZjODlkMTg5ZjNmNDNhNGUxZjg4MSIsImV4cCI6MTcwNzc2OTA3M30.JmTBnVPtOmBxl_hOZtZtGWroMSny8Cq2sJDVa9ibIx6oi5GqW_t3zCLulmu75sjg\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/refresh-token",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"refresh-token"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "signin",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n\r\n    \"email\":\"hanya123@gmail.com\",\r\n    \"password\":\"Hanya\"\r\n\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/signin",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"signin"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "new organization",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJJRCI6IjY1Y2FhNTNmNjg5MmYyNDRiYTg5ZDdiNyIsImV4cCI6MTcwNzc4MDMxNX0.wl9nGYCSVDVQbnSZWW-fBNpgVYPSfEhB5-KIwCcADB4",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\":\"Organization 1\",\r\n    \"description\":\"this is a test description\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/organization",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"organization"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get org by id",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJJRCI6IjY1Yzk4MjhiNDU3MGY2MWQ2Yzc4OTRmOSIsImV4cCI6MTcwNzcwNTg5OH0.OOHel8TSff-CTWdLAtkzKx_ypB-TeeuRPYrnupSkFK4",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/organization/:organization_id",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"organization",
+						":organization_id"
+					],
+					"variable": [
+						{
+							"key": "organization_id",
+							"value": "65c982d44570f61d6c7894fa"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "all orgs",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJJRCI6IjY1Y2FhNTNmNjg5MmYyNDRiYTg5ZDdiNyIsImV4cCI6MTcwNzc4MDMxNX0.wl9nGYCSVDVQbnSZWW-fBNpgVYPSfEhB5-KIwCcADB4",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/organization",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"organization"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "update organization",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJJRCI6IjY1Y2FhNTNmNjg5MmYyNDRiYTg5ZDdiNyIsImV4cCI6MTcwNzc4MDMxNX0.wl9nGYCSVDVQbnSZWW-fBNpgVYPSfEhB5-KIwCcADB4",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n\r\n    \"description\":\"this is the updated description\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/organization/:organization_id",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"organization",
+						":organization_id"
+					],
+					"variable": [
+						{
+							"key": "organization_id",
+							"value": "65caa5ad6892f244ba89d7b8"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "delete org",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJJRCI6IjY1YzkzMWIwYTlhMzVhZjE1ODVkZmY5MSIsImV4cCI6MTcwNzY5MzczN30.lS7uJboh6aa7Rcdvh5WfvldjAPlYjzcOASJ8dae93n8",
+							"type": "string"
+						}
+					]
+				},
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/organization/:organization_id",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"organization",
+						":organization_id"
+					],
+					"variable": [
+						{
+							"key": "organization_id",
+							"value": "65c95124c2db45dcdec75a40"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "invite user to org",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJJRCI6IjY1Y2FhNTNmNjg5MmYyNDRiYTg5ZDdiNyIsImV4cCI6MTcwNzc4MDMxNX0.wl9nGYCSVDVQbnSZWW-fBNpgVYPSfEhB5-KIwCcADB4",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"user_email\":\"hanya123@gmail.com\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/organization/:organization_id/invite",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"organization",
+						":organization_id",
+						"invite"
+					],
+					"variable": [
+						{
+							"key": "organization_id",
+							"value": "65caa5ad6892f244ba89d7b8"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
